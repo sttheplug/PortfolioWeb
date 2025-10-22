@@ -1,0 +1,29 @@
+# Node modules
+/node_modules/
+
+# Build output
+/build/
+/dist/
+
+# Logs
+*.log
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# dotenv environment variables file
+.env
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# npm package-lock file
+package-lock.json
