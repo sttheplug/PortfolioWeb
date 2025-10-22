@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MainTitle from "./MainTitle";
 import "./App.css";
 import TypingText from "./TypingText";
 import oceanbg from './videos/oceanbg.mp4';
@@ -57,11 +58,12 @@ function App() {
           <source src={oceanbg} type="video/mp4" />
         </video>
         <div className="header caption">
-          <TypingText 
-            texts={["I am Simon", "Welcome to my Portfolio"]} 
-            speed={90} 
-            pause={1500} 
-          />
+          <TypingText texts={["I am Simon", "Welcome to my Portfolio"]} speed={90} pause={1500} />
+          <p className="subtext">Software Developer • Creative Coder • Tech Enthusiast</p>
+          <div className="button-group">
+            <button className="btn">Download CV</button>
+            <a href="#contact" className="btn">Contact Me</a>
+          </div>
         </div>
       </section>
 

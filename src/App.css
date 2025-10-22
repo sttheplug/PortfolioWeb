@@ -114,12 +114,13 @@ nav {
 
 .header {
   position: relative;
-  z-index: 1; /* on top of video */
+  z-index: 1;
+  margin-top: 28px;
   display: flex;
+  flex-direction: column; /* stack vertically */
   justify-content: center;
   align-items: center;
 }
-
 .caption h5 {
   font-size: 3em;
   font-weight: bold;
@@ -167,3 +168,50 @@ nav {
   color: #12b3f3; /* same as hover color */
   text-shadow: 0 0 5px rgba(18,179,243,0.7);
 }
+
+.subtext {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #d0f7ff;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  animation: fadeIn 2s ease-in-out 2s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.button-group {
+  margin-top: 40px;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 17px 50px; /* Bigger buttons */
+  font-size: 1.15rem; /* Slightly larger text */
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50px; /* Keep the rounded pill look */
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  letter-spacing: 0.6px;
+  font-weight: 500; /* Slightly bolder text */
+}
+
+/* Hover – bright, oceanic glow */
+.btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #00bfff;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+  transform: translateY(-4px);
+}
+
+
+
