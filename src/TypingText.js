@@ -1,33 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
-const TypingText = ({ text = "", speed = 150, pause = 1000 }) => {
-  const [index, setIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const timeoutRef = useRef(null);
+const TypingText = ({ texts = ["Hello, World!"], speed = 100, pause = 1000, loop = true }) => {
+  const [currentText, setCurrentText] = useState("");
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      if (!isDeleting) {
-        if (index < text.length) {
-          setIndex(index + 1);
-        } else {
-          setTimeout(() => setIsDeleting(true), pause);
+    const timeout = setTimeout(() => {
+      const fullText = texts[textIndex];
+      if (!deleting) {
+        setCurrentText(fullText.slice(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+        if (charIndex + 1 === fullText.length) {
+          setTimeout(() => setDeleting(true), pause);
         }
       } else {
-        if (index > 0) {
-          setIndex(index - 1);
-        } else {
-          setIsDeleting(false);
+        setCurrentText(fullText.slice(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+        if (charIndex - 1 === 0) {
+          setDeleting(false);
+          setTextIndex((textIndex + 1) % texts.length);
         }
       }
     }, speed);
+    return () => clearTimeout(timeout);
+  }, [charIndex, deleting, textIndex, texts, speed, pause]);
 
-    return () => clearTimeout(timeoutRef.current);
-  }, [index, isDeleting, text, speed, pause]);
-
-  const displayedText = text.substring(0, index);
-
-  return <h5>Hello,{displayedText}|</h5>;
+  return <h5 style={{ color: "white" }}>{currentText}<span className="cursor">|</span></h5>;
 };
 
 export default TypingText;

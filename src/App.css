@@ -51,7 +51,7 @@ nav {
 }
 
 .nav-left {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   color: white;
 }
@@ -154,11 +154,16 @@ nav {
 
 .cursor {
   display: inline-block;
-  margin-left: 2px;
   width: 1ch;
+  margin-left: 2px;
   animation: blink 1s step-start infinite;
 }
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+.nav-links a.active {
+  color: #12b3f3; /* same as hover color */
+  text-shadow: 0 0 5px rgba(18,179,243,0.7);
 }
