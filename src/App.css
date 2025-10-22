@@ -16,27 +16,32 @@ html, body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overflow-y: auto;
-  background-color: black; /* fallback if video fails */
+  background-color: black; 
   color: white;
 }
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.2) rgba(0,0,0,0);
+  scrollbar-color: rgba(128,128,128,0.4) rgba(0,0,0,0); /* grey thumb, transparent track */
 }
+
 html::-webkit-scrollbar {
   width: 10px;
 }
+
 html::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0);
+  background: rgba(200, 200, 200, 0.1); /* light grey, subtle */
 }
+
 html::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.1);
+  background: rgba(128, 128, 128, 0.4); /* grey semi-transparent thumb */
   border-radius: 5px;
 }
+
 html::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(128, 128, 128, 0.6);
 }
+
 nav {
   position: fixed;
   top: 18px;
@@ -194,7 +199,7 @@ nav {
 .btn {
   padding: 17px 50px; /* Bigger buttons */
   font-size: 1.15rem; /* Slightly larger text */
-  border: 3px solid rgba(255, 255, 255, 0.6);
+  border: 3px solid #00bfff;
   border-radius: 50px; /* Keep the rounded pill look */
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
@@ -213,5 +218,96 @@ nav {
   transform: translateY(-4px);
 }
 
+#about {
+  background: url('C:/Users/Simon/PortfolioWeb/public/blue.png') center/cover no-repeat;
+  padding: 4rem 1rem;
+  position: relative;
+}
+#about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* increased from 0.5 → 0.7 */
+  z-index: 1;
+}
+.about-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(270deg, #00b4ff, #00ffff, #005eff);
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* above the overlay */
+  color: white;
+}
+.about-box {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.45)
+  ); /* darker translucent gradient */
+  border: 1px solid rgba(0, 150, 255, 0.4);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+              0 0 20px rgba(0, 150, 255, 0.25);
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.about-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6),
+              0 0 30px rgba(0, 180, 255, 0.4);
+}
+
+
+.about-box p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: white;                   /* ensures text stands out */
+}
+.about-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: white;           /* adjust for your theme */
+  font-weight: 600;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #ffffffcc;       /* slightly transparent white for style */
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+}
 
 

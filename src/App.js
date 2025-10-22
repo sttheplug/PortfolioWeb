@@ -58,7 +58,7 @@ function App() {
           <source src={oceanbg} type="video/mp4" />
         </video>
         <div className="header caption">
-          <TypingText texts={["I am Simon", "Welcome to my Portfolio"]} speed={90} pause={1500} />
+          <TypingText texts={["Hello, I am Simon", "Welcome to my Portfolio"]} speed={90} pause={1500} />
           <p className="subtext">Software Developer • Creative Coder • Tech Enthusiast</p>
           <div className="button-group">
             <a href="/CV.pdf" download className="btn">
@@ -74,8 +74,21 @@ function App() {
 
       {/* Other Sections */}
       <section className="section space-section" id="about">
-        <div className="header caption"><h5>About</h5></div>
-      </section>
+      <div className="about-container">
+        <div className="about-box">
+          <h5 className="about-title">About Me</h5>
+          <p>
+            Hi, I’m <strong>Simon Tekle Tesfatsion</strong>, a recent Computer Science graduate from KTH. 
+            I’m passionate about software development, DevOps, and cloud technologies, and I love turning complex problems into elegant, working solutions.
+          </p>
+          <p>
+            When I’m not coding, you’ll find me exploring finance charts, trading, or hitting the gym to debug my workout routine. 
+            I’m eager to learn, collaborate with great teams, and contribute to projects that make a real impact.
+          </p>
+        </div>
+      </div>
+    </section>
+
 
       <section className="section space-section" id="projects">
         <div className="header caption"><h5>Projects</h5></div>
@@ -83,6 +96,7 @@ function App() {
 
       <section className="section space-section" id="skills">
         <div className="header caption"><h5>Skills</h5></div>
+        
       </section>
 
       <section className="section space-section" id="contact">
