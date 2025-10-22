@@ -176,7 +176,7 @@ nav {
   opacity: 0.8;
   letter-spacing: 1px;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-  animation: fadeIn 2s ease-in-out 2s forwards;
+  animation: fadeIn 1s ease-in-out 1s forwards;
   opacity: 0;
 }
 
@@ -185,7 +185,7 @@ nav {
 }
 
 .button-group {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   gap: 25px;
   justify-content: center;

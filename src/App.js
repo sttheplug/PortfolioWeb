@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MainTitle from "./MainTitle";
+import { FaDownload } from "react-icons/fa"; 
 import "./App.css";
 import TypingText from "./TypingText";
 import oceanbg from './videos/oceanbg.mp4';
@@ -61,8 +61,13 @@ function App() {
           <TypingText texts={["I am Simon", "Welcome to my Portfolio"]} speed={90} pause={1500} />
           <p className="subtext">Software Developer • Creative Coder • Tech Enthusiast</p>
           <div className="button-group">
-            <button className="btn">Download CV</button>
-            <a href="#contact" className="btn">Contact Me</a>
+            <a href="/CV.pdf" download className="btn">
+              <FaDownload style={{ marginRight: '8px', verticalAlign: 'middle'}} />
+              Download CV
+            </a>
+            <a href="#contact" className="btn">
+              Contact Me
+            </a>
           </div>
         </div>
       </section>
