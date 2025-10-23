@@ -71,10 +71,38 @@ nav {
   text-decoration: none;
   font-size: 1.1em;
   transition: color 0.3s, text-shadow 0.3s;
+  position: relative; /* needed for the ::after underline positioning */
 }
 
 .nav-links a:hover {
   color: #12b3f3;
+}
+
+.nav-links a.active {
+  color: #12b3f3; /* same as hover color */
+  text-shadow: 0 0 5px rgba(18,179,243,0.7);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* adjust spacing under text */
+  width: 0;
+  height: 2px;
+  background-color: #12b3f3; /* same as your active/hover color */
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hover underline animation */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Active link underline (always visible) */
+.nav-links a.active::after {
+  width: 100%;
 }
 
 .section {
@@ -167,11 +195,6 @@ nav {
 
 @keyframes blink {
   50% { opacity: 0; }
-}
-
-.nav-links a.active {
-  color: #12b3f3; /* same as hover color */
-  text-shadow: 0 0 5px rgba(18,179,243,0.7);
 }
 
 .subtext {
@@ -283,7 +306,6 @@ nav {
               0 0 30px rgba(0, 180, 255, 0.4);
 }
 
-
 .about-box p {
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
@@ -308,6 +330,30 @@ nav {
   .about-container {
     flex-direction: column;
   }
+}
+
+.section-title {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding: 0.75rem 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 250px;
+  z-index: -1;
 }
 
 

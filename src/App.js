@@ -76,7 +76,7 @@ function App() {
       <section className="section space-section" id="about">
       <div className="about-container">
         <div className="about-box">
-          <h5 className="about-title">About Me</h5>
+        <h1 class="section-title">About Me</h1>
           <p>
             Hi, I’m <strong>Simon Tekle Tesfatsion</strong>, a recent Computer Science graduate from KTH. 
             I’m passionate about software development, DevOps, and cloud technologies, and I love turning complex problems into elegant, working solutions.
