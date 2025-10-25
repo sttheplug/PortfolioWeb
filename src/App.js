@@ -72,24 +72,28 @@ function App() {
         </div>
       </section>
 
-      {/* Other Sections */}
-      <section className="section space-section" id="about">
+     {/* Other Sections */}
+    <section className="section space-section" id="about">
       <div className="about-container">
+        {/* LEFT SIDE - PHOTO */}
+        <div className="about-photo"></div>
+
+        {/* RIGHT SIDE - TEXT BOX */}
         <div className="about-box">
-        <h1 class="section-title">About Me</h1>
+          <h1 className="section-title">About Me</h1>
           <p>
-            Hi, I’m <strong>Simon Tekle Tesfatsion</strong>, a recent Computer Science graduate from KTH. 
-            I’m passionate about software development, DevOps, and cloud technologies, and I love turning complex problems into elegant, working solutions.
+            Hi, I’m <strong>Simon Tekle Tesfatsion</strong>, a recent Computer Science graduate from KTH.
+            I’m passionate about software development, DevOps, and cloud technologies, and I love turning
+            complex problems into elegant, working solutions.
           </p>
           <p>
-            When I’m not coding, you’ll find me exploring finance charts, trading, or hitting the gym to debug my workout routine. 
-            I’m eager to learn, collaborate with great teams, and contribute to projects that make a real impact.
+            When I’m not coding, you’ll find me exploring finance charts, trading, or hitting the gym to
+            debug my workout routine. I’m eager to learn, collaborate with great teams, and contribute to
+            projects that make a real impact.
           </p>
         </div>
       </div>
     </section>
-
-
       <section className="section space-section" id="projects">
         <div className="header caption"><h5>Projects</h5></div>
       </section>
