@@ -1,0 +1,151 @@
+/* ================================
+   PROJECTS SECTION
+================================ */
+#projects {
+  background: url('C:/Users/Simon/PortfolioWeb/public/blue2.jpg') center/cover no-repeat; /* ✅ Use relative path for deployment */
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: start;
+  color: #fff;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Dark overlay behind content */
+#projects::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+/* Ensure content sits above overlay */
+#projects .header,
+#projects .projects-grid {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4rem;
+}
+
+/* ================================
+   HEADER STYLING
+================================ */
+#projects .header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#projects .header h5 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ================================
+   PROJECT GRID LAYOUT
+================================ */
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* ✅ 6 cards per row */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* RESPONSIVE GRID */
+@media (max-width: 1400px) {
+  #projects .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #projects .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  #projects .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   PROJECT CARD STYLING — Matches About Box
+================================ */
+.project-card {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.55)
+  );
+  border: 1px solid rgba(0, 150, 255, 0.4);
+  border-radius: 25px;
+  padding: 1.5rem;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 180, 255, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Hover effect — glow & lift */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(0, 180, 255, 0.6);
+}
+
+/* ================================
+   CARD TEXT
+================================ */
+.project-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.project-card p {
+  color: #d1d5db;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* ================================
+   BUTTON INSIDE CARD — Glass + Glow
+================================ */
+.project-card .btn-details {
+  align-self: flex-start;
+  padding: 0.5rem 1.2rem;
+  background: rgba(0, 100, 255, 0.25); /* semi-transparent */
+  color: #fff;
+  border: 1px solid rgba(0, 150, 255, 0.6); /* glowing border */
+  border-radius: 12px;
+  backdrop-filter: blur(6px); /* glass effect */
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 150, 255, 0.4);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-card .btn-details:hover {
+  background: rgba(0, 150, 255, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 180, 255, 0.6);
+  transform: translateY(-2px);
+}

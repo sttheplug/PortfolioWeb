@@ -16,13 +16,12 @@ html, body {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overflow-y: auto;
-  background-color: black; 
-  color: white;
+  background-color: rgba(15, 45, 90, 0.95);
+  color: #f5faff; 
 }
-
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(128,128,128,0.4) rgba(0,0,0,0); /* grey thumb, transparent track */
+  scrollbar-color: #12b3f3 rgba(50, 50, 50, 0.4);
 }
 
 html::-webkit-scrollbar {
@@ -30,16 +29,22 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: rgba(200, 200, 200, 0.1); /* light grey, subtle */
-}
-
-html::-webkit-scrollbar-thumb {
-  background: rgba(128, 128, 128, 0.4); /* grey semi-transparent thumb */
+  background: rgba(200, 200, 200, 0.1); /* subtle light track */
   border-radius: 5px;
 }
 
+html::-webkit-scrollbar-thumb {
+  background: rgba(18, 179, 243, 0.5); /* semi-transparent blue */
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
 html::-webkit-scrollbar-thumb:hover {
-  background: rgba(128, 128, 128, 0.6);
+  background: #12b3f3; /* full blue on hover */
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: #0d9fd9; /* slightly darker when active */
 }
 
 nav {
@@ -242,7 +247,7 @@ nav {
 }
 /* ABOUT SECTION */
 #about {
-  background: url('C:/Users/Simon/PortfolioWeb/public/blue.png') center/cover no-repeat;
+  background: url('C:/Users/Simon/PortfolioWeb/public/blue2.jpg') center/cover no-repeat;
   position: relative;
   height: 100vh;                /* ensure full-screen section */
   padding: 0 1rem;              /* remove excessive top padding */
@@ -262,7 +267,6 @@ nav {
   z-index: 1;
 }
 
-/* GRADIENT BORDER EFFECT AROUND BOX */
 .about-box::before {
   content: "";
   position: absolute;
@@ -279,7 +283,6 @@ nav {
   mask-composite: exclude;
 }
 
-/* MAIN CONTAINER (controls layout) */
 .about-container {
   width: 100%;
   max-width: 1200px;
@@ -295,7 +298,6 @@ nav {
   padding-right: 3rem;         /* spacing from right edge */
 }
 
-/* ABOUT BOX (rectangular style) */
 .about-box {
   background: linear-gradient(
     135deg,
@@ -311,8 +313,8 @@ nav {
   transition: all 0.4s ease;
 
   width: 650px;
-  max-height: 80vh;          /* ensures it fits on screen */
-  overflow-y: auto;          /* internal scroll if too tall */
+  max-height: 80vh;          
+  overflow-y: auto;         
 
   text-align: center;
   display: flex;
@@ -322,14 +324,12 @@ nav {
   position: relative;
 }
 
-/* hover effect */
 .about-box:hover {
   transform: scale(1.03);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7),
               0 0 40px rgba(0, 200, 255, 0.5);
 }
 
-/* TEXT INSIDE BOX */
 .about-box p {
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -337,7 +337,6 @@ nav {
   color: #fff;
 }
 
-/* container paragraph text */
 .about-container p {
   font-size: 1rem;
   line-height: 1.6;
@@ -345,7 +344,6 @@ nav {
   color: #ffffffcc;
 }
 
-/* section title */
 .section-title {
   position: relative;
   text-align: center;
@@ -370,7 +368,6 @@ nav {
   z-index: -1;
 }
 
-/* GRADIENT ANIMATION */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -474,3 +471,4 @@ nav {
     height: 250px;
   }
 }
+

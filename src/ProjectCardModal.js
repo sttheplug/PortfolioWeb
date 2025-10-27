@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, ArrowRight, ExternalLink } from 'lucide-react';
+import "./Projects.css";
 
 const ProjectCardModal = ({ title, description, link }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +8,7 @@ const ProjectCardModal = ({ title, description, link }) => {
   return (
     <>
       <button
-        className="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/90 transition-colors duration-200"
+        className="btn-details"
         onClick={() => setIsOpen(true)}
       >
         <span className="text-sm">Details</span>
