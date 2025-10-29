@@ -1,87 +1,187 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
+import styled from 'styled-components';
 
-const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
-  // Handle kasus ketika ProjectLink kosong
+const CardWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+const CardContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
+  border: 1px solid rgba(0,180,255,0.4);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6),
+              0 0 25px rgba(0,180,255,0.25);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+
+  &:hover {
+    border-color: rgba(0,200,255,0.7);
+    box-shadow: 0 0 35px rgba(0,180,255,0.5);
+    transform: translateY(-4px);
+  }
+`;
+
+const GradientOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(0,180,255,0.15),
+    rgba(0,255,255,0.12),
+    rgba(0,94,255,0.08)
+  );
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+
+  ${CardContainer}:hover & {
+    opacity: 0.6;
+  }
+`;
+
+const CardContent = styled.div`
+  position: relative;
+  padding: 1.5rem;
+  z-index: 10;
+`;
+
+const ImgContainer = styled.div`
+  overflow: hidden;
+  border-radius: 0.5rem;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.5s ease;
+
+  ${CardContainer}:hover & {
+    transform: scale(1.05);
+  }
+`;
+
+const Title = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  background: linear-gradient(to right,#00b4ff,#00ffff,#005eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
+const Description = styled.p`
+  color: rgba(230,240,255,0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+`;
+
+const LinksRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+`;
+
+const LiveDemo = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #00d0ff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #66e3ff;
+  }
+`;
+
+const DetailsButton = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(0,200,255,0.15);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,200,255,0.5);
+  }
+`;
+
+const CardProject = ({ Img: imageSrc, Title: titleText, Description: desc, Link: ProjectLink, id }) => {
   const handleLiveDemo = (e) => {
     if (!ProjectLink) {
-      console.log("ProjectLink kosong");
       e.preventDefault();
-      alert("Live demo link is not available");
+      alert('Live demo link is not available');
     }
   };
-  
+
   const handleDetails = (e) => {
     if (!id) {
-      console.log("ID kosong");
       e.preventDefault();
-      alert("Project details are not available");
+      alert('Project details are not available');
     }
   };
-  
 
   return (
-    <div className="group relative w-full">
-            
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 hover:shadow-purple-500/20">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-    
-        <div className="relative p-5 z-10">
-          <div className="relative overflow-hidden rounded-lg">
-            <img
-              src={Img}
-              alt={Title}
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          
-          <div className="mt-4 space-y-3">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent">
-              {Title}
-            </h3>
-            
-            <p className="text-gray-300/80 text-sm leading-relaxed line-clamp-2">
-              {Description}
-            </p>
-            
-            <div className="pt-4 flex items-center justify-between">
-              {ProjectLink ? (
-                <a
-                href={ProjectLink || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleLiveDemo}
-                  className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors duration-200"
-                >
-                  <span className="text-sm font-medium">Live Demo</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              ) : (
-                <span className="text-gray-500 text-sm">Demo Not Available</span>
-              )}
-              
-     
+    <CardWrapper>
+      <CardContainer>
+        <GradientOverlay />
+        <CardContent>
+          <ImgContainer>
+            <Img src={imageSrc} alt={titleText} />
+          </ImgContainer>
 
-              {id ? (
-                <Link
-                  to={`/project/${id}`}
-                  onClick={handleDetails}
-                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/90 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
-                >
-                  <span className="text-sm font-medium">Details</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              ) : (
-                <span className="text-gray-500 text-sm">Details Not Available</span>
-              )}
-            </div>
-          </div>
-          
-          <div className="absolute inset-0 border border-white/0 group-hover:border-purple-500/50 rounded-xl transition-colors duration-300 -z-50"></div>
-        </div>
-      </div>
-    </div>
+          <Title>{titleText}</Title>
+          <Description>{desc}</Description>
+
+          <LinksRow>
+            {ProjectLink ? (
+              <LiveDemo
+                href={ProjectLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLiveDemo}
+              >
+                Github Repo <ExternalLink size={16} />
+              </LiveDemo>
+            ) : (
+              <span style={{ color:'#475569', fontSize:'0.875rem' }}>Demo Not Available</span>
+            )}
+
+            {id ? (
+              <DetailsButton to={`/project/${id}`} onClick={handleDetails}>
+                Details <ArrowRight size={16} />
+              </DetailsButton>
+            ) : (
+              <span style={{ color:'#475569', fontSize:'0.875rem' }}>Details Not Available</span>
+            )}
+          </LinksRow>
+        </CardContent>
+      </CardContainer>
+    </CardWrapper>
   );
 };
 
