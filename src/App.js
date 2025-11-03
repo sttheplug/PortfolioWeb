@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { FaDownload } from "react-icons/fa";
 import "./App.css";
 import "./Projects.css";
+import "./Interests.css";
 import TypingText from "./TypingText";
-import CardProject from "./CardProject.js";
+import CardProject from "./CardProject.js"
 import oceanbg from "./videos/oceanbg.mp4";
 import grafana from "./assets/grafana.png";
 import nback from "./assets/nbackgame.jpg";
@@ -11,13 +12,19 @@ import auction from "./assets/auctionplatform.jpg";
 import sportpulseweb from "./assets/sportpulse.jpg";
 import journalsystem from "./assets/journalsystem.jpg";
 import portfolio from "./assets/portfolio.png";
+import devIcon from "./assets/software.png";
+import gamingIcon from "./assets/gaming.png"
+import financeIcon from "./assets/finance.png";
+import pianoIcon from "./assets/piano.png";
+import fitnessIcon from "./assets/fitness.png";
+import travelIcon from "./assets/travel.png";
 
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const sections = ["home", "about", "projects", "skills", "contact"];
+    const sections = ["home", "about", "projects", "interests", "contact"];
     const observers = [];
 
     sections.forEach((id) => {
@@ -92,7 +99,7 @@ function App() {
       title: "PortfolioWeb",
       description:
         "A responsive React portfolio showcasing my projects, skills, and GitHub work with a modern design.",
-      link: "https://github.com/sttheplug/PortfolioWebsite",
+      link: "https://github.com/sttheplug/PortfolioWeb",
       Img: portfolio,
     },
   ];
@@ -115,8 +122,8 @@ function App() {
           >
             Projects
           </a>
-          <a href="#skills" className={activeSection === "skills" ? "active" : ""}>
-            Skills
+          <a href="#interests" className={activeSection === "interests" ? "active" : ""}>
+            Interests
           </a>
           <a
             href="#contact"
@@ -197,21 +204,37 @@ function App() {
         </div>
       </section>
 
-      {/* ⚙️ Skills Section */}
-      <section className="section space-section" id="skills">
-        <div className="header caption">
-          <h5>Skills</h5>
+      <section className="section interests-section relative overflow-hidden" id="interests">
+      <div className="content-wrapper relative z-10 flex flex-col items-center">
+        <div className="header caption mb-6">
+          <h5>Interests</h5>
         </div>
 
-        <div className="skills-grid">
-          <div className="skill-card">React</div>
-          <div className="skill-card">Java Spring Boot</div>
-          <div className="skill-card">ASP.NET Core</div>
-          <div className="skill-card">Node.js</div>
-          <div className="skill-card">Docker & Kubernetes</div>
-          <div className="skill-card">SQL</div>
+        <div className="interests-grid grid grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            { name: "Software", icon: devIcon },
+            { name: "Gaming", icon: gamingIcon },
+            { name: "Finance", icon: financeIcon },
+            { name: "Piano", icon: pianoIcon },
+            { name: "Fitness", icon: fitnessIcon },
+            { name: "Travel", icon: travelIcon },
+          ].map((interest, index) => (
+            <div
+              key={index}
+              className="interests-card flex flex-col items-center justify-center w-40 h-40 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={interest.icon}
+                alt={interest.name}
+                className="w-16 h-16 mb-2 object-contain"
+              />
+              <span className="text-center font-medium text-sm">{interest.name}</span>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+
 
       {/* 📬 Contact Section */}
       <section className="section space-section" id="contact">

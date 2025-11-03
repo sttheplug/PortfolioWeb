@@ -1,0 +1,132 @@
+/* Interests Section */
+.interests-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  overflow: hidden;
+  background: url('/public/blue2.jpg') center/cover no-repeat;
+  background-size: cover;
+}
+
+.interests-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 0;
+}
+
+.interests-section .content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interests-section .header {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.interests-section .header h5 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Grid */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+  z-index: 10;
+  margin-bottom: 4rem;
+}
+
+/* Individual Card */
+.interests-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
+  border: 1px solid rgba(0,180,255,0.4);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 25px rgba(0,180,255,0.25);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  cursor: default;
+  width: 180px;
+  height: 180px;
+}
+
+.interests-card:hover {
+  border-color: rgba(0,200,255,0.7);
+  box-shadow: 0 0 35px rgba(0,180,255,0.5);
+  transform: translateY(-4px);
+}
+
+/* Icon inside card */
+.interests-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.interests-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Card text */
+.interests-card span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .interests-card {
+    width: 150px;
+    height: 150px;
+    padding: 1rem;
+  }
+  .interests-card img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .interests-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .interests-card {
+    width: 130px;
+    height: 130px;
+    padding: 0.8rem;
+  }
+  .interests-card img {
+    width: 48px;
+    height: 48px;
+  }
+}

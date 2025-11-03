@@ -248,7 +248,7 @@ nav {
 }
 /* ABOUT SECTION */
 #about {
-  background: url('C:/Users/Simon/PortfolioWeb/public/blue2.jpg') center/cover no-repeat;
+  background: url('/public/blue2.jpg') center/cover no-repeat;
   position: relative;
   height: 100vh;                /* ensure full-screen section */
   padding: 0 1rem;              /* remove excessive top padding */
@@ -384,7 +384,7 @@ nav {
   overflow: hidden;
   margin-left: 2rem;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background-image: url('C:/Users/Simon/PortfolioWeb/public/profile.jpg'); /* ✅ use relative path from /public folder */
+  background-image: url('/public/profile.jpg'); /* ✅ use relative path from /public folder */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
