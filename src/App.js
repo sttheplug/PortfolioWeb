@@ -18,6 +18,8 @@ import financeIcon from "./assets/finance.png";
 import pianoIcon from "./assets/piano.png";
 import fitnessIcon from "./assets/fitness.png";
 import travelIcon from "./assets/travel.png";
+import foodIcon from "./assets/food.png";
+import carsIcon from "./assets/car.png";
 
 
 function App() {
@@ -203,37 +205,37 @@ function App() {
           ))}
         </div>
       </section>
-
-      <section className="section interests-section relative overflow-hidden" id="interests">
-      <div className="content-wrapper relative z-10 flex flex-col items-center">
-        <div className="header caption mb-6">
-          <h5>Interests</h5>
+      <section className="section interests-section" id="interests">
+        <div className="content-wrapper">
+          <div className="header caption mb-6">
+            <h5>Interests</h5>
+          </div>
+          <div className="interests-grid">
+            {[
+              { name: "Software", icon: devIcon },
+              { name: "Gaming", icon: gamingIcon },
+              { name: "Finance", icon: financeIcon },
+              { name: "Piano", icon: pianoIcon },
+              { name: "Fitness", icon: fitnessIcon },
+              { name: "Travel", icon: travelIcon },
+              { name: "Food", icon: foodIcon },
+              { name: "Cars", icon: carsIcon },
+            ].map((interest, index) => (
+              <div key={index} className="interests-card">
+                <div className="content-inner">
+                  <img
+                    src={interest.icon}
+                    alt={interest.name}
+                    className="interests-card-img"
+                  />
+                  <span>{interest.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="interests-grid grid grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            { name: "Software", icon: devIcon },
-            { name: "Gaming", icon: gamingIcon },
-            { name: "Finance", icon: financeIcon },
-            { name: "Piano", icon: pianoIcon },
-            { name: "Fitness", icon: fitnessIcon },
-            { name: "Travel", icon: travelIcon },
-          ].map((interest, index) => (
-            <div
-              key={index}
-              className="interests-card flex flex-col items-center justify-center w-40 h-40 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <img
-                src={interest.icon}
-                alt={interest.name}
-                className="w-16 h-16 mb-2 object-contain"
-              />
-              <span className="text-center font-medium text-sm">{interest.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
 
 
       {/* 📬 Contact Section */}

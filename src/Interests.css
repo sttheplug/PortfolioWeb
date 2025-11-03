@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   color: #fff;
   overflow: hidden;
   background: url('/public/blue2.jpg') center/cover no-repeat;
@@ -26,12 +26,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 1rem;
 }
 
 .interests-section .header {
   text-align: center;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .interests-section .header h5 {
@@ -40,78 +42,190 @@
   color: #fff;
 }
 
-/* Grid */
+/* Grid for 8 cards - fixed 4x2 */
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 900px;
+  grid-template-columns: repeat(4, 180px); /* larger cards */
+  grid-template-rows: repeat(2, auto);
+  gap: 2.5rem;
+  justify-content: center;
   width: 100%;
-  z-index: 10;
-  margin-bottom: 4rem;
 }
 
-/* Individual Card */
 .interests-card {
-  position: relative;
+  width: 180px;
+  height: 180px;
+  padding: 1.8rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
+  border: 1px solid rgba(0,180,255,0.7);      /* glow color by default */
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.6),             /* dark shadow */
+    0 0 20px 3px rgba(0,180,255,0.4);        /* subtle blue glow by default */
+  backdrop-filter: blur(10px);
+  text-align: center;
+  color: #00bfff;                             /* default blue text */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interests-card:hover {
+  transform: translateY(-6px);               /* only lift on hover */
+  /* keep glow same as default */
+}
+
+
+
+/* Inner container for stagger effect */
+.interests-card .content-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
-  border: 1px solid rgba(0,180,255,0.4);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 25px rgba(0,180,255,0.25);
-  backdrop-filter: blur(10px);
-  text-align: center;
-  color: #fff;
-  font-weight: 500;
-  transition: all 0.4s ease;
-  cursor: default;
-  width: 180px;
-  height: 180px;
+  transition: transform 0.3s ease;
 }
 
+/* Stagger effect */
+.interests-card:nth-child(2) .content-inner,
+.interests-card:nth-child(5) .content-inner {
+  transform: translateY(14px);
+}
+
+.interests-card:nth-child(3) .content-inner,
+.interests-card:nth-child(6) .content-inner {
+  transform: translateY(7px);
+}
+
+/* Hover effect */
 .interests-card:hover {
   border-color: rgba(0,200,255,0.7);
   box-shadow: 0 0 35px rgba(0,180,255,0.5);
-  transform: translateY(-4px);
-}
-
-/* Icon inside card */
-.interests-card img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 12px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  transform: translateY(-6px);
 }
 
 .interests-card:hover img {
   transform: scale(1.1);
 }
 
-/* Card text */
-.interests-card span {
-  font-weight: 600;
-  font-size: 1rem;
+/* Card image */
+.interests-card img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 18px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-/* Responsive */
+/* Card text */
+/* Card text with default blue tone */
+.interests-card span {
+  font-weight: 700;               
+  font-size: 1.2rem;              
+  line-height: 1.3rem;            
+  text-align: center;
+  letter-spacing: 0.5px;          
+  color: #00e5ff;                 /* default soft blue */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* subtle shadow for readability */
+  word-wrap: break-word;          
+  transition: all 0.3s ease;      /* smooth color transition on hover */
+}
+
+/* Hover effect for text */
+.interests-card:hover span {
+  color: #00e5ff;                 /* brighter cyan glow */
+  text-shadow: 0 0 8px #00e5ff;   /* glow effect on hover */
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 1280px) {
+  .interests-grid {
+    grid-template-columns: repeat(4, 170px);
+    gap: 2rem;
+  }
+  .interests-card {
+    width: 170px;
+    height: 170px;
+    padding: 1.6rem;
+  }
+  .interests-card img {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 16px;
+  }
+  .interests-card span {
+    font-size: 1rem;
+  }
+  .interests-card:nth-child(2) .content-inner,
+  .interests-card:nth-child(5) .content-inner {
+    transform: translateY(12px);
+  }
+  .interests-card:nth-child(3) .content-inner,
+  .interests-card:nth-child(6) .content-inner {
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .interests-grid {
+    grid-template-columns: repeat(3, 160px);
+    gap: 1.8rem;
+    justify-content: center;
+  }
+  .interests-card {
+    width: 160px;
+    height: 160px;
+    padding: 1.4rem;
+  }
+  .interests-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 14px;
+  }
+  .interests-card span {
+    font-size: 0.95rem;
+  }
+  .interests-card:nth-child(2) .content-inner,
+  .interests-card:nth-child(5) .content-inner {
+    transform: translateY(10px);
+  }
+  .interests-card:nth-child(3) .content-inner,
+  .interests-card:nth-child(6) .content-inner {
+    transform: translateY(5px);
+  }
+}
+
 @media (max-width: 768px) {
   .interests-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 150px);
+    gap: 1.2rem;
+    justify-content: center;
   }
   .interests-card {
     width: 150px;
     height: 150px;
-    padding: 1rem;
+    padding: 1.2rem;
   }
   .interests-card img {
-    width: 56px;
-    height: 56px;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 12px;
+  }
+  .interests-card span {
+    font-size: 0.9rem;
+  }
+  .interests-card:nth-child(2) .content-inner,
+  .interests-card:nth-child(5) .content-inner {
+    transform: translateY(9px);
+  }
+  .interests-card:nth-child(3) .content-inner,
+  .interests-card:nth-child(6) .content-inner {
+    transform: translateY(4px);
   }
 }
 
@@ -119,14 +233,25 @@
   .interests-grid {
     grid-template-columns: 1fr;
     gap: 0.8rem;
+    justify-content: center;
   }
   .interests-card {
     width: 130px;
     height: 130px;
-    padding: 0.8rem;
+    padding: 1rem;
   }
   .interests-card img {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  .interests-card span {
+    font-size: 0.85rem;
+  }
+  .interests-card:nth-child(2) .content-inner,
+  .interests-card:nth-child(5) .content-inner,
+  .interests-card:nth-child(3) .content-inner,
+  .interests-card:nth-child(6) .content-inner {
+    transform: translateY(0);
   }
 }
