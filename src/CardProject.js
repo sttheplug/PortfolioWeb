@@ -138,13 +138,6 @@ const CardProject = ({ Img: imageSrc, Title: titleText, Description: desc, Link:
     }
   };
 
-  const handleDetails = (e) => {
-    if (!id) {
-      e.preventDefault();
-      alert('Project details are not available');
-    }
-  };
-
   return (
     <CardWrapper>
       <CardContainer>
@@ -171,13 +164,16 @@ const CardProject = ({ Img: imageSrc, Title: titleText, Description: desc, Link:
               <span style={{ color:'#475569', fontSize:'0.875rem' }}>Demo Not Available</span>
             )}
 
-            {id ? (
-              <DetailsButton to={`/project/${id}`} onClick={handleDetails}>
-                Details <ArrowRight size={16} />
-              </DetailsButton>
-            ) : (
-              <span style={{ color:'#475569', fontSize:'0.875rem' }}>Details Not Available</span>
-            )}
+           { id ? (
+            <DetailsButton 
+              to={`/project/${id}`} 
+              state={{ scrollTo: "projects" }} // pass state
+            >
+              Details <ArrowRight size={16} />
+            </DetailsButton>
+          ) : (
+            <span style={{ color:'#475569', fontSize:'0.875rem' }}>Details Not Available</span>
+          )}
           </LinksRow>
         </CardContent>
       </CardContainer>

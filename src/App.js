@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom"; // ✅ import Routes and Route
 import { FaDownload } from "react-icons/fa";
+import { projects } from "./data/projects"; 
 import "./App.css";
 import "./Projects.css";
 import "./Interests.css";
 import TypingText from "./TypingText";
 import CardProject from "./CardProject.js"
+import ProjectDetails from "./ProjectDetails.js"; // ✅ import your details page
 import oceanbg from "./videos/oceanbg.mp4";
-import grafana from "./assets/grafana.png";
-import nback from "./assets/nbackgame.jpg";
-import auction from "./assets/auctionplatform.jpg";
-import sportpulseweb from "./assets/sportpulse.jpg";
-import journalsystem from "./assets/journalsystem.jpg";
-import portfolio from "./assets/portfolio.png";
 import devIcon from "./assets/software.png";
 import gamingIcon from "./assets/gaming.png"
 import financeIcon from "./assets/finance.png";
@@ -21,8 +18,7 @@ import travelIcon from "./assets/travel.png";
 import foodIcon from "./assets/food.png";
 import carsIcon from "./assets/car.png";
 
-
-function App() {
+function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
@@ -56,56 +52,6 @@ function App() {
     };
   }, []);
 
-  // ✅ Use the imported images here
-  const projects = [
-    {
-      id: 1,
-      title: "N-Back",
-      description: "A cognitive training game that boosts memory and focus.",
-      link: "https://github.com/sttheplug/N-Back",
-      Img: nback,
-    },
-    {
-      id: 2,
-      title: "JournalSystem",
-      description: "A full-stack journaling app with Spring Boot and React.",
-      link: "https://github.com/sttheplug/JournalSystem",
-      Img: journalsystem,
-    },
-    {
-      id: 3,
-      title: "AuctionPlatform",
-      description:
-        "An ASP.NET Core MVC app for online auctions, built on Entity Framework.",
-      link: "https://github.com/sttheplug/AuctionPlatform",
-      Img: auction,
-    },
-    {
-      id: 4,
-      title: "CrateFlow",
-      description:
-        "A SpringBoot microservice monitor using Micrometer, InfluxDB, and Grafana.",
-      link: "https://github.com/sttheplug/CrateFlow",
-      Img: grafana,
-    },
-    {
-      id: 5,
-      title: "SportPulseWeb",
-      description:
-        "A web app for real-time sports performance using Polar Verity Sense data.",
-      link: "https://github.com/sttheplug/SportPulseWeb",
-      Img: sportpulseweb,
-    },
-    {
-      id: 6,
-      title: "PortfolioWeb",
-      description:
-        "A responsive React portfolio showcasing my projects, skills, and GitHub work with a modern design.",
-      link: "https://github.com/sttheplug/PortfolioWeb",
-      Img: portfolio,
-    },
-  ];
-
   return (
     <div>
       {/* Navigation Bar */}
@@ -118,19 +64,13 @@ function App() {
           <a href="#about" className={activeSection === "about" ? "active" : ""}>
             About
           </a>
-          <a
-            href="#projects"
-            className={activeSection === "projects" ? "active" : ""}
-          >
+          <a href="#projects" className={activeSection === "projects" ? "active" : ""}>
             Projects
           </a>
           <a href="#interests" className={activeSection === "interests" ? "active" : ""}>
             Interests
           </a>
-          <a
-            href="#contact"
-            className={activeSection === "contact" ? "active" : ""}
-          >
+          <a href="#contact" className={activeSection === "contact" ? "active" : ""}>
             Contact
           </a>
         </div>
@@ -247,5 +187,12 @@ function App() {
     </div>
   );
 }
-
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/project/:id" element={<ProjectDetails />} />
+    </Routes>
+  );
+}
 export default App;

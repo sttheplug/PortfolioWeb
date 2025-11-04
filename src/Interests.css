@@ -33,7 +33,7 @@
 
 .interests-section .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .interests-section .header h5 {
@@ -42,29 +42,31 @@
   color: #fff;
 }
 
-/* Grid for 8 cards - fixed 4x2 */
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(4, 180px); /* larger cards */
+  grid-template-columns: repeat(4, 180px);
   grid-template-rows: repeat(2, auto);
-  gap: 2.5rem;
+  row-gap: 2rem;        /* vertical spacing between rows */
+  column-gap: 2.5rem;   /* horizontal spacing */
   justify-content: center;
   width: 100%;
 }
 
+
+/* Individual Card */
 .interests-card {
   width: 180px;
   height: 180px;
   padding: 1.8rem;
   border-radius: 1rem;
   background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55));
-  border: 1px solid rgba(0,180,255,0.7);      /* glow color by default */
+  border: 1px solid rgba(0,180,255,0.7);  /* default subtle glow */
   box-shadow: 
-    0 10px 30px rgba(0,0,0,0.6),             /* dark shadow */
-    0 0 20px 3px rgba(0,180,255,0.4);        /* subtle blue glow by default */
+    0 10px 30px rgba(0,0,0,0.6),
+    0 0 20px 3px rgba(0,180,255,0.4);     /* subtle glow by default */
   backdrop-filter: blur(10px);
   text-align: center;
-  color: #00bfff;                             /* default blue text */
+  color: #00bfff;
   font-weight: 500;
   transition: all 0.3s ease;
   cursor: default;
@@ -73,12 +75,11 @@
   justify-content: center;
 }
 
+/* Hover effect */
 .interests-card:hover {
-  transform: translateY(-6px);               /* only lift on hover */
-  /* keep glow same as default */
+  transform: translateY(-6px);           /* only lift on hover */
+  /* glow remains same as default */
 }
-
-
 
 /* Inner container for stagger effect */
 .interests-card .content-inner {
@@ -100,66 +101,53 @@
   transform: translateY(7px);
 }
 
-/* Hover effect */
-.interests-card:hover {
-  border-color: rgba(0,200,255,0.7);
-  box-shadow: 0 0 35px rgba(0,180,255,0.5);
-  transform: translateY(-6px);
-}
-
-.interests-card:hover img {
-  transform: scale(1.1);
-}
-
 /* Card image */
 .interests-card img {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 18px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 /* Card text */
-/* Card text with default blue tone */
 .interests-card span {
-  font-weight: 700;               
-  font-size: 1.2rem;              
-  line-height: 1.3rem;            
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
   text-align: center;
-  letter-spacing: 0.5px;          
-  color: #00e5ff;                 /* default soft blue */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* subtle shadow for readability */
-  word-wrap: break-word;          
-  transition: all 0.3s ease;      /* smooth color transition on hover */
+  letter-spacing: 0.5px;
+  color: #00e5ff;                 /* soft blue */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  word-wrap: break-word;
+  transition: all 0.3s ease;
 }
 
-/* Hover effect for text */
+/* Hover text effect */
 .interests-card:hover span {
-  color: #00e5ff;                 /* brighter cyan glow */
-  text-shadow: 0 0 8px #00e5ff;   /* glow effect on hover */
+  color: #00e5ff;
+  text-shadow: 0 0 8px #00e5ff;
 }
-
-
 
 /* Responsive Adjustments */
 @media (max-width: 1280px) {
   .interests-grid {
     grid-template-columns: repeat(4, 170px);
-    gap: 2rem;
+    column-gap: 3.4rem;
   }
   .interests-card {
-    width: 170px;
-    height: 170px;
+    width: 180px;
+    height: 180px;
     padding: 1.6rem;
   }
   .interests-card img {
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
     margin-bottom: 16px;
   }
   .interests-card span {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.3rem;
   }
   .interests-card:nth-child(2) .content-inner,
   .interests-card:nth-child(5) .content-inner {
@@ -183,12 +171,12 @@
     padding: 1.4rem;
   }
   .interests-card img {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 14px;
   }
   .interests-card span {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
   .interests-card:nth-child(2) .content-inner,
   .interests-card:nth-child(5) .content-inner {
@@ -212,12 +200,12 @@
     padding: 1.2rem;
   }
   .interests-card img {
-    width: 55px;
-    height: 55px;
+    width: 65px;
+    height: 65px;
     margin-bottom: 12px;
   }
   .interests-card span {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .interests-card:nth-child(2) .content-inner,
   .interests-card:nth-child(5) .content-inner {
@@ -241,12 +229,12 @@
     padding: 1rem;
   }
   .interests-card img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin-bottom: 10px;
   }
   .interests-card span {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
   .interests-card:nth-child(2) .content-inner,
   .interests-card:nth-child(5) .content-inner,
