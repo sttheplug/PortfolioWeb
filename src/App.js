@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom"; // ✅ import Routes and Route
+import { Routes, Route } from "react-router-dom"; 
 import { FaDownload } from "react-icons/fa";
 import { projects } from "./data/projects"; 
 import "./App.css";
@@ -7,16 +7,16 @@ import "./Projects.css";
 import "./Interests.css";
 import TypingText from "./TypingText";
 import CardProject from "./CardProject.js"
-import ProjectDetails from "./ProjectDetails.js"; // ✅ import your details page
+import ProjectDetails from "./ProjectDetails.js";
 import oceanbg from "./videos/oceanbg.mp4";
-import devIcon from "./assets/software.png";
-import gamingIcon from "./assets/gaming.png"
-import financeIcon from "./assets/finance.png";
-import pianoIcon from "./assets/piano.png";
-import fitnessIcon from "./assets/fitness.png";
-import travelIcon from "./assets/travel.png";
-import foodIcon from "./assets/food.png";
-import carsIcon from "./assets/car.png";
+import devIcon from "./assets/interests/software.png";
+import gamingIcon from "./assets/interests/gaming.png"
+import financeIcon from "./assets/interests/finance.png";
+import pianoIcon from "./assets/interests/piano.png";
+import fitnessIcon from "./assets/interests/fitness.png";
+import travelIcon from "./assets/interests/travel.png";
+import foodIcon from "./assets/interests/food.png";
+import carsIcon from "./assets/interests/car.png";
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
@@ -175,9 +175,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-
-
       {/* 📬 Contact Section */}
       <section className="section space-section" id="contact">
         <div className="header caption">

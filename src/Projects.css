@@ -124,3 +124,66 @@
   color: gray;
   font-size: .8rem;
 }
+.techstack-grid {
+  display: flex;             
+  flex-wrap: nowrap;         
+  gap: 0.6rem;               /* slightly smaller gap between cards */
+  justify-content: center;   
+  align-items: center;       
+  margin-top: 1rem;
+  overflow-x: auto;          
+  padding-bottom: 0.5rem;    
+}
+
+.techstack-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  padding: 1.2rem;           /* bigger card */
+  width: 90px;               /* wider */
+  height: 110px;             /* taller */
+  background-color: rgba(71, 85, 105, 0.25);
+  border-radius: 1rem;
+  border: 2px solid rgba(0, 179, 255, 0.324);  /* glowing border default */
+  box-shadow: 0 0 8px rgba(0, 179, 255, 0.295), 0 8px 16px rgba(0,0,0,0.25); /* subtle glow + shadow */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 0; 
+}
+
+.techstack-icon:hover {
+  background-color: rgba(71, 85, 105, 0.4);
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(0,180,255,0.8), 0 12px 24px rgba(0,0,0,0.3); /* stronger glow on hover */
+  border-color: rgba(0, 180, 255, 0.8);
+}
+
+.techstack-icon .icon-wrapper {
+  position: relative;
+  height: 3.5rem;  /* slightly bigger icon container */
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.techstack-icon img {
+  height: 2.5rem;  /* bigger icon */
+  width: 2.5rem;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.techstack-icon span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.techstack-icon:hover span {
+  color: #ffffff;
+}
