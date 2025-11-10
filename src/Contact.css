@@ -1,0 +1,84 @@
+.contact-section {
+  position: relative; /* stacking context */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  scroll-snap-align: start;
+}
+
+.contact-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* behind everything */
+  background-color: black;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* dark overlay */
+  z-index: 1; /* above video */
+}
+
+.contact-content {
+  position: relative; /* required for z-index */
+  z-index: 2;         /* above overlay */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  top: 50%;               /* vertical center */
+  transform: translateY(-50%);
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #00bfff, #0084b4);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 191, 255, 0.7);
+}
+
+.contact-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00bfff, #0084b4);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contact-icon-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 191, 255, 0.7);
+}
+
+.contact-icon-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor; /* ensures icon inherits button color */
+}

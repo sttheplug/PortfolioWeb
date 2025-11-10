@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom"; 
+import { Routes, Route } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
-import { projects } from "./data/projects"; 
-import "./App.css";
-import "./Projects.css";
-import "./Interests.css";
+import { projects } from "./data/projects";
 import TypingText from "./TypingText";
-import CardProject from "./CardProject.js"
+import CardProject from "./CardProject.js";
 import ProjectDetails from "./ProjectDetails.js";
-import oceanbg from "./videos/oceanbg.mp4";
+import oceanbg from "./assets/videos/oceanbg.mp4";
+import space1 from "./assets/videos/space1.mp4";
 import devIcon from "./assets/interests/software.png";
-import gamingIcon from "./assets/interests/gaming.png"
+import gamingIcon from "./assets/interests/gaming.png";
 import financeIcon from "./assets/interests/finance.png";
 import pianoIcon from "./assets/interests/piano.png";
 import fitnessIcon from "./assets/interests/fitness.png";
 import travelIcon from "./assets/interests/travel.png";
 import foodIcon from "./assets/interests/food.png";
 import carsIcon from "./assets/interests/car.png";
+import { FaGithub, FaLinkedin } from "react-icons/fa"; // make sure react-icons is installed
+
+import "./App.css";
+import "./Projects.css";
+import "./Interests.css";
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
@@ -36,25 +39,19 @@ function HomePage() {
             window.history.replaceState(null, "", `#${id}`);
           }
         },
-        {
-          root: null,
-          rootMargin: "-50% 0px -50% 0px",
-          threshold: 0,
-        }
+        { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
       );
 
       observer.observe(section);
       observers.push(observer);
     });
 
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
+    return () => observers.forEach((observer) => observer.disconnect());
   }, []);
 
   return (
     <div>
-      {/* Navigation Bar */}
+      {/* 🧭 Navigation */}
       <nav>
         <div className="nav-left">Simon Tekle Tesfatsion</div>
         <div className="nav-links">
@@ -64,13 +61,22 @@ function HomePage() {
           <a href="#about" className={activeSection === "about" ? "active" : ""}>
             About
           </a>
-          <a href="#projects" className={activeSection === "projects" ? "active" : ""}>
+          <a
+            href="#projects"
+            className={activeSection === "projects" ? "active" : ""}
+          >
             Projects
           </a>
-          <a href="#interests" className={activeSection === "interests" ? "active" : ""}>
+          <a
+            href="#interests"
+            className={activeSection === "interests" ? "active" : ""}
+          >
             Interests
           </a>
-          <a href="#contact" className={activeSection === "contact" ? "active" : ""}>
+          <a
+            href="#contact"
+            className={activeSection === "contact" ? "active" : ""}
+          >
             Contact
           </a>
         </div>
@@ -145,6 +151,8 @@ function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* 🎮 Interests Section */}
       <section className="section interests-section" id="interests">
         <div className="content-wrapper">
           <div className="header caption mb-6">
@@ -174,16 +182,55 @@ function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-      {/* 📬 Contact Section */}
-      <section className="section space-section" id="contact">
-        <div className="header caption">
-          <h5>Contact</h5>
-        </div>
-      </section>
+      </section>;
+
+<section className="section space-section" id="contact">
+  {/* Background Video */}
+  <video className="background-video" autoPlay loop muted playsInline>
+    <source src={space1} type="video/mp4" />
+  </video>
+
+  {/* Content overlay */}
+  <div className="header caption">
+    <h1>Contact Me</h1>
+
+    <div className="button-group">
+      {/* Email button */}
+      <a href="mailto:simon.tekle823@outlook.com" className="btn">
+        Send Email
+      </a>
+
+      {/* GitHub icon button */}
+      <a
+        href="https://github.com/sttheplug"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn"
+        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <FaGithub size={24} />
+      </a>
+
+      {/* LinkedIn icon button */}
+      <a
+        href="https://www.linkedin.com/in/YOUR_PROFILE/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn"
+        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <FaLinkedin size={24} />
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
     </div>
   );
 }
+
 function App() {
   return (
     <Routes>
@@ -192,4 +239,5 @@ function App() {
     </Routes>
   );
 }
+
 export default App;

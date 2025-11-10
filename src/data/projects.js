@@ -28,7 +28,7 @@ export const projects = [
     fulldescription: "The Journal System is a full-stack web application for managing journal entries, users, and roles. Built with a Java Spring Boot backend and a React frontend, it offers secure authentication and role-based access, allowing users to create, edit, and view journal entries safely. Features include a rich text editor, responsive design for mobile devices, and containerized deployment using Docker, making it easy to run and scale.",
     link: "https://github.com/sttheplug/JournalSystem",
     Img: journalsystem,
-    TechStack: ["React", "Spring Boot", "Java", "Maven", "Docker", "MySQL", "CSS", "HTML", "JavaScript"],
+    TechStack: ["React", "Spring Boot", "Java", "Docker", "MySQL", "CSS", "HTML", "JavaScript"],
     Features: [
       "User authentication and role-based access",
       "Create, edit, and delete journal entries",
