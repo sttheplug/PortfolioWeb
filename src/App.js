@@ -5,6 +5,7 @@ import { projects } from "./data/projects";
 import TypingText from "./TypingText";
 import CardProject from "./CardProject.js";
 import ProjectDetails from "./ProjectDetails.js";
+import ContactIcons from "./ContactIcons.js";
 import oceanbg from "./assets/videos/oceanbg.mp4";
 import space1 from "./assets/videos/space1.mp4";
 import devIcon from "./assets/interests/software.png";
@@ -15,11 +16,10 @@ import fitnessIcon from "./assets/interests/fitness.png";
 import travelIcon from "./assets/interests/travel.png";
 import foodIcon from "./assets/interests/food.png";
 import carsIcon from "./assets/interests/car.png";
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // make sure react-icons is installed
-
 import "./App.css";
 import "./Projects.css";
 import "./Interests.css";
+import "./Contact.css";
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
@@ -97,7 +97,7 @@ function HomePage() {
             Software Developer • Creative Coder • Tech Enthusiast
           </p>
           <div className="button-group">
-            <a href="/CV.pdf" download className="btn">
+            <a href="/Simon Tekle Tesfatsion - CV.pdf" download className="btn">
               <FaDownload
                 style={{ marginRight: "8px", verticalAlign: "middle" }}
               />
@@ -153,80 +153,45 @@ function HomePage() {
       </section>
 
       {/* 🎮 Interests Section */}
-      <section className="section interests-section" id="interests">
-        <div className="content-wrapper">
-          <div className="header caption mb-6">
-            <h5>Interests</h5>
-          </div>
-          <div className="interests-grid">
-            {[
-              { name: "Software", icon: devIcon },
-              { name: "Gaming", icon: gamingIcon },
-              { name: "Finance", icon: financeIcon },
-              { name: "Piano", icon: pianoIcon },
-              { name: "Fitness", icon: fitnessIcon },
-              { name: "Travel", icon: travelIcon },
-              { name: "Food", icon: foodIcon },
-              { name: "Cars", icon: carsIcon },
-            ].map((interest, index) => (
-              <div key={index} className="interests-card">
-                <div className="content-inner">
-                  <img
-                    src={interest.icon}
-                    alt={interest.name}
-                    className="interests-card-img"
-                  />
-                  <span>{interest.name}</span>
-                </div>
-              </div>
-            ))}
+<section className="section interests-section" id="interests">
+  <div className="content-wrapper">
+    <div className="header caption mb-6">
+      <h5>Interests</h5>
+    </div>
+    <div className="interests-grid">
+      {[
+        { name: "Software", icon: devIcon },
+        { name: "Gaming", icon: gamingIcon },
+        { name: "Finance", icon: financeIcon },
+        { name: "Piano", icon: pianoIcon },
+        { name: "Fitness", icon: fitnessIcon },
+        { name: "Travel", icon: travelIcon },
+        { name: "Food", icon: foodIcon },
+        { name: "Cars", icon: carsIcon },
+      ].map((interest, index) => (
+        <div key={index} className="interests-card">
+          <div className="content-inner">
+            <img
+              src={interest.icon}
+              alt={interest.name}
+              className="interests-card-img"
+            />
+            <span>{interest.name}</span>
           </div>
         </div>
-      </section>;
-
-<section className="section space-section" id="contact">
-  {/* Background Video */}
-  <video className="background-video" autoPlay loop muted playsInline>
-    <source src={space1} type="video/mp4" />
-  </video>
-
-  {/* Content overlay */}
-  <div className="header caption">
-    <h1>Contact Me</h1>
-
-    <div className="button-group">
-      {/* Email button */}
-      <a href="mailto:simon.tekle823@outlook.com" className="btn">
-        Send Email
-      </a>
-
-      {/* GitHub icon button */}
-      <a
-        href="https://github.com/sttheplug"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn"
-        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
-        <FaGithub size={24} />
-      </a>
-
-      {/* LinkedIn icon button */}
-      <a
-        href="https://www.linkedin.com/in/YOUR_PROFILE/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn"
-        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
-        <FaLinkedin size={24} />
-      </a>
+      ))}
     </div>
   </div>
 </section>
-
-
-
+  <section className="section space-section" id="contact">
+    <video className="background-video" autoPlay loop muted playsInline>
+      <source src={space1} type="video/mp4" />
+    </video>
+    <div className="header caption">
+      <h5>Contact Me</h5>
+      <ContactIcons />
+    </div>
+  </section>
     </div>
   );
 }
