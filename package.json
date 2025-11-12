@@ -17,6 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "preinstall": "npm install -g npm@11",
     "prebuild": "chmod +x node_modules/.bin/react-scripts",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -26,7 +27,7 @@
     "deploy": "gh-pages -d build"
   },
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   },
   "eslintConfig": {
     "extends": [
