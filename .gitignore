@@ -58,3 +58,4 @@ stylelintcache
 # ================================
 jest-html-reporters-*.html
 test-output/
+node_modules/
