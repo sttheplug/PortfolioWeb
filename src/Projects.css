@@ -111,15 +111,14 @@
   color: gray;
   font-size: .8rem;
 }
+
 .techstack-grid {
   display: flex;             
   flex-wrap: nowrap;         
-  gap: 0.6rem;               /* slightly smaller gap between cards */
+  gap: 0.6rem;               
   justify-content: center;   
   align-items: center;       
   margin-top: 1rem;
-  overflow-x: auto;          
-  padding-bottom: 0.5rem;    
 }
 
 .techstack-icon {
@@ -128,13 +127,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.1rem;
-  padding: 1.2rem;           /* bigger card */
-  width: 90px;               /* wider */
-  height: 110px;             /* taller */
+  padding: 1.2rem;          
+  width: 90px;              
+  height: 110px;             
   background-color: rgba(71, 85, 105, 0.25);
   border-radius: 1rem;
-  border: 2px solid rgba(0, 179, 255, 0.324);  /* glowing border default */
-  box-shadow: 0 0 8px rgba(0, 179, 255, 0.295), 0 8px 16px rgba(0,0,0,0.25); /* subtle glow + shadow */
+  border: 2px solid rgba(0, 179, 255, 0.324); 
+  box-shadow: 0 0 8px rgba(0, 179, 255, 0.295), 0 8px 16px rgba(0,0,0,0.25); 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   flex-shrink: 0; 
