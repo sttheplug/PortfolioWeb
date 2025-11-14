@@ -2,20 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import { projects } from "./data/projects";
+import { interests } from "./data/interests";
 import TypingText from "./TypingText";
 import CardProject from "./CardProject.js";
 import ProjectDetails from "./ProjectDetails.js";
 import ContactIcons from "./ContactIcons.js";
 import oceanbg from "./assets/videos/oceanbg.mp4";
 import space1 from "./assets/videos/space1.mp4";
-import devIcon from "./assets/interests/software.png";
-import gamingIcon from "./assets/interests/gaming.png";
-import financeIcon from "./assets/interests/finance.png";
-import pianoIcon from "./assets/interests/piano.png";
-import fitnessIcon from "./assets/interests/fitness.png";
-import travelIcon from "./assets/interests/travel.png";
-import foodIcon from "./assets/interests/food.png";
-import carsIcon from "./assets/interests/car.png";
 import "./App.css";
 import "./Projects.css";
 import "./Interests.css";
@@ -23,15 +16,12 @@ import "./Contact.css";
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
-
   useEffect(() => {
     const sections = ["home", "about", "projects", "interests", "contact"];
     const observers = [];
-
     sections.forEach((id) => {
       const section = document.getElementById(id);
       if (!section) return;
-
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -41,7 +31,6 @@ function HomePage() {
         },
         { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
       );
-
       observer.observe(section);
       observers.push(observer);
     });
@@ -153,36 +142,27 @@ function HomePage() {
       </section>
 
       {/* 🎮 Interests Section */}
-<section className="section interests-section" id="interests">
-  <div className="content-wrapper">
-    <div className="header caption mb-6">
-      <h5>Interests</h5>
-    </div>
-    <div className="interests-grid">
-      {[
-        { name: "Software", icon: devIcon },
-        { name: "Gaming", icon: gamingIcon },
-        { name: "Finance", icon: financeIcon },
-        { name: "Piano", icon: pianoIcon },
-        { name: "Fitness", icon: fitnessIcon },
-        { name: "Travel", icon: travelIcon },
-        { name: "Food", icon: foodIcon },
-        { name: "Cars", icon: carsIcon },
-      ].map((interest, index) => (
-        <div key={index} className="interests-card">
-          <div className="content-inner">
-            <img
-              src={interest.icon}
-              alt={interest.name}
-              className="interests-card-img"
-            />
-            <span>{interest.name}</span>
+    <section className="section interests-section" id="interests">
+    <div className="content-wrapper">
+      <div className="header caption mb-6">
+        <h5>Interests</h5>
+      </div>
+      <div className="interests-grid">
+        {interests.map((interest, index) => (
+          <div key={index} className="interests-card">
+            <div className="content-inner">
+              <img
+                src={interest.icon}
+                alt={interest.name}
+                className="interests-card-img"
+              />
+              <span>{interest.name}</span>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <section className="section space-section" id="contact">
     <video className="background-video" autoPlay loop muted playsInline>
       <source src={space1} type="video/mp4" />
