@@ -26,8 +26,6 @@ function ContactIcons() {
           </div>
         ))}
       </div>
-
-      {/* Phone number below the buttons */}
       <div className="phone-label">
         <FaPhone style={{ marginRight: "0.5rem" }} />
         <span>+46 73 722 93 60</span>

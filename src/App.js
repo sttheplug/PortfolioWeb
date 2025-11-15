@@ -10,6 +10,7 @@ import ContactIcons from "./ContactIcons.js";
 import oceanbg from "./assets/videos/oceanbg.mp4";
 import space1 from "./assets/videos/space1.mp4";
 import "./App.css";
+import "./About.css";
 import "./Projects.css";
 import "./Interests.css";
 import "./Contact.css";
