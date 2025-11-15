@@ -290,7 +290,7 @@ export default function ProjectDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
-  const [showTechModal, setShowTechModal] = useState(false); // modal state
+  const [showTechModal, setShowTechModal] = useState(false); 
 
   const handleBack = () => {
     navigate("/");
@@ -363,7 +363,7 @@ export default function ProjectDetails() {
           </TextColumn>
           <ImageColumn>
             <CardContainer>
-              <GradientOverlay /> {/* overlay above card bg */}
+              <GradientOverlay /> 
               <ImgContainer>
                 <Img src={project.Img} alt={project.title} />
               </ImgContainer>

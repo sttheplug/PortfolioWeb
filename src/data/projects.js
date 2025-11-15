@@ -40,7 +40,7 @@ export const projects = [
   {
     id: 3,
     title: "AuctionPlatform",
-    description: "An ASP.NET Core MVC app for online auctions, built on Entity Framework.",
+    description: "Online auction platform built with ASP.NET Core MVC.",
     fulldescription: "AuctionPlatform is an ASP.NET Core 8 MVC application for online auctions. It allows users to register, create and manage auctions, place bids, and track winners, while providing admin tools for managing users and auctions. Built with a three-layer architecture, it uses Entity Framework Core for data access and Identity for secure authentication, ensuring safe and user-specific handling. Additional features include real-time bidding updates and email notifications for winning bids.",
     link: "https://github.com/sttheplug/AuctionPlatform",
     Img: auction,
