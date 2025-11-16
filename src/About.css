@@ -206,3 +206,17 @@
     width: clamp(150px, 55vw, 220px);
   }
 }
+
+@media (max-width: 400px) {
+  .about-box {
+    padding: 1rem;
+  }
+
+  .about-photo {
+    width: clamp(120px, 65vw, 180px);
+  }
+
+  .about-container {
+    gap: 1rem;
+  }
+}

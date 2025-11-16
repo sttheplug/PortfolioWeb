@@ -244,6 +244,27 @@ nav {
   transform: translateY(-4px);
 }
 
+/* ---------- Phones up to 600px ---------- */
+@media (max-width: 600px) {
+  nav {
+    padding: 8px 14px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.9em;
+  }
+
+  .nav-left {
+    font-size: 1em;
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Phones up to 500px ---------- */
 @media (max-width: 500px) {
   nav {
     padding: 6px 12px;
@@ -254,11 +275,63 @@ nav {
   }
 
   .nav-links a {
-    font-size: 0.8em;
+    font-size: 0.82em;
   }
 
   .nav-left {
-    font-size: 0.9em;
+    font-size: 0.95em;
+  }
+}
+
+/* ---------- PRO MAX FIX — iPhone 12/13/14/15 Pro Max (430px width) ---------- */
+@media (max-width: 430px) {
+  nav {
+    padding: 6px 10px;
+  }
+
+  .nav-links {
+    gap: 6px;           /* reduce spacing so links don't touch your name */
+  }
+
+  .nav-links a {
+    font-size: 0.78em;  /* slightly smaller font to prevent overlap */
+  }
+
+  .nav-left {
+    font-size: 0.9em;   /* reduce name size */
+  }
+}
+
+/* ---------- Phones up to 420px (iPhone 12/12 Pro, 11, XR, X/XS) ---------- */
+@media (max-width: 420px) {
+  nav {
+    padding: 5px 8px;
+  }
+
+  .nav-links {
+    gap: 4px;               /* slightly smaller spacing */
+  }
+
+  .nav-links a {
+    font-size: 0.70em;      /* smaller but still readable */
+  }
+
+  .nav-left {
+    font-size: 0.84em;      /* slightly smaller name size */
+  }
+}
+
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 380px) {
+  .nav-left {
+    font-size: 0.85em;
+  }
+  .nav-links a {
+    font-size: 0.75em;
+  }
+  .nav-links {
+    gap: 4px;
   }
 }
 
