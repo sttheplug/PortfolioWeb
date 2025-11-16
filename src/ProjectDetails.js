@@ -239,7 +239,7 @@ const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 999;
-  backdrop-filter: blur(5px);        /* subtle background blur */
+  backdrop-filter: blur(5px);        
 `;
 
 const ModalContent = styled.div`
@@ -250,13 +250,28 @@ const ModalContent = styled.div`
   backdrop-filter: blur(10px);
   padding: 2rem;
   color: #fff;
-  min-width: 600px;
-  max-width: 900px;
+  
   width: 80%;
+  max-width: 900px;
+  min-width: 300px;      
+  
   max-height: 90vh;
   overflow-y: auto;
   transition: all 0.4s ease;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    min-width: 250px;  
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;         
+    min-width: 200px;   
+    padding: 1rem;      
+  }
 `;
+
 
 
 const CloseButton = styled.button`
@@ -335,7 +350,7 @@ export default function ProjectDetails() {
             <StatsRow>
               <StatCard>
                 <StatNumber color="#74eaff">{project.TechStack?.length || 0}</StatNumber>
-                <StatLabel>Total Technologies</StatLabel>
+                <StatLabel>Technologies Used</StatLabel>
               </StatCard>
               <StatCard>
                 <StatNumber color="#a29bff">{project.Features?.length || 0}</StatNumber>

@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 90%;
   max-width: 1400px;
   padding: 0 1rem;
 }
@@ -36,25 +36,25 @@
 }
 
 .interests-section .header h5 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 600;
   color: #fff;
 }
 
 .interests-grid {
   display: grid;
-  grid-template-columns: repeat(4, 180px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(2, auto);
-  row-gap: 2rem;
-  column-gap: 2.5rem;
-  justify-content: center;
+  gap: 2.5rem;
   width: 100%;
+  max-width: 900px;
+  justify-items: center;
 }
 
 .interests-card {
-  width: 180px;
-  height: 180px;
-  perspective: 1000px; 
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  perspective: 1000px;
 }
 
 .interests-card-inner {
@@ -70,12 +70,11 @@
 
 .interests-card:hover .interests-card-inner {
   transform: rotateY(180deg);
-  box-shadow: 
+  box-shadow:
     0 0 6px #00bfff,
     0 0 12px #00e5ff,
     0 0 18px rgba(0, 180, 255, 0.4);
 }
-
 
 .interests-card-front,
 .interests-card-back {
@@ -99,12 +98,12 @@
 
 .interests-card-back {
   transform: rotateY(180deg);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
   line-height: 1.4rem;
-  color: #80d7f4; 
-  text-shadow: 
-    0 0 4px #00bfff, 
-    0 0 8px #00e5ff;   
+  color: #80d7f4;
+  text-shadow:
+    0 0 4px #00bfff,
+    0 0 8px #00e5ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,22 +112,22 @@
 }
 
 .interests-card:hover .interests-card-back {
-  text-shadow: 
+  text-shadow:
     0 0 6px #00bfff,
     0 0 10px #00e5ff;
 }
 
 .interests-card-front img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 16px;
+  width: 50%;
+  height: auto;
+  margin-bottom: 1rem;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .interests-card-front span {
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   line-height: 1.4rem;
   color: #00e5ff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -140,124 +139,38 @@
 
 .interests-card:nth-child(2) .content-inner,
 .interests-card:nth-child(5) .content-inner {
-  transform: translateY(14px);
+  transform: translateY(10px);
 }
 
 .interests-card:nth-child(3) .content-inner,
 .interests-card:nth-child(6) .content-inner {
-  transform: translateY(7px);
-}
-
-@media (max-width: 1280px) {
-  .interests-grid {
-    grid-template-columns: repeat(4, 170px);
-    column-gap: 3.4rem;
-  }
-  .interests-card {
-    width: 180px;
-    height: 180px;
-    padding: 1.6rem;
-  }
-  .interests-card img {
-    width: 75px;
-    height: 75px;
-    margin-bottom: 16px;
-  }
-  .interests-card span {
-    font-size: 1.1rem;
-    line-height: 1.3rem;
-  }
-  .interests-card:nth-child(2) .content-inner,
-  .interests-card:nth-child(5) .content-inner {
-    transform: translateY(12px);
-  }
-  .interests-card:nth-child(3) .content-inner,
-  .interests-card:nth-child(6) .content-inner {
-    transform: translateY(6px);
-  }
+  transform: translateY(5px);
 }
 
 @media (max-width: 1024px) {
   .interests-grid {
-    grid-template-columns: repeat(3, 160px);
-    gap: 1.8rem;
-    justify-content: center;
-  }
-  .interests-card {
-    width: 160px;
-    height: 160px;
-    padding: 1.4rem;
-  }
-  .interests-card img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 14px;
-  }
-  .interests-card span {
-    font-size: 1.1rem;
-  }
-  .interests-card:nth-child(2) .content-inner,
-  .interests-card:nth-child(5) .content-inner {
-    transform: translateY(10px);
-  }
-  .interests-card:nth-child(3) .content-inner,
-  .interests-card:nth-child(6) .content-inner {
-    transform: translateY(5px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .interests-grid {
-    grid-template-columns: repeat(2, 150px);
-    gap: 1.2rem;
-    justify-content: center;
-  }
-  .interests-card {
-    width: 150px;
-    height: 150px;
-    padding: 1.2rem;
-  }
-  .interests-card img {
-    width: 65px;
-    height: 65px;
-    margin-bottom: 12px;
-  }
-  .interests-card span {
-    font-size: 1rem;
-  }
-  .interests-card:nth-child(2) .content-inner,
-  .interests-card:nth-child(5) .content-inner {
-    transform: translateY(9px);
-  }
-  .interests-card:nth-child(3) .content-inner,
-  .interests-card:nth-child(6) .content-inner {
-    transform: translateY(4px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .interests-grid {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
-    justify-content: center;
+    grid-template-rows: auto;
+    gap: 1rem;
   }
   .interests-card {
-    width: 130px;
-    height: 130px;
-    padding: 1rem;
-  }
-  .interests-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-  }
-  .interests-card span {
-    font-size: 0.95rem;
-  }
-  .interests-card:nth-child(2) .content-inner,
-  .interests-card:nth-child(5) .content-inner,
-  .interests-card:nth-child(3) .content-inner,
-  .interests-card:nth-child(6) .content-inner {
-    transform: translateY(0);
+    width: 80%;
+    max-width: 180px;
   }
 }

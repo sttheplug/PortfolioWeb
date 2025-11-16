@@ -29,7 +29,7 @@
 #projects .header {
   text-align: center;
   margin-bottom: 2rem;
-  padding-top: 2rem; 
+  padding-top: 2rem;
 }
 
 #projects .header h5 {
@@ -46,21 +46,26 @@
   max-width: 1400px;
   justify-items: center;
   margin: 0 auto;
-  grid-auto-flow: row;
 }
 
 .modal-img-container {
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
+  height: 0;
+  padding-top: 56.25%;
+  position: relative;
   margin-bottom: 1rem;
 }
 
 .modal-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .modal-img:hover {
@@ -68,7 +73,7 @@
 }
 
 .modal-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 600;
 }
 
@@ -76,6 +81,7 @@
   margin-top: 8px;
   color: #ccc;
   line-height: 1.4rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
 }
 
 .modal-tech-section {
@@ -89,6 +95,7 @@
   font-weight: 600;
   color: #9abafc;
   margin-bottom: 8px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
 }
 
 .modal-tech-list {
@@ -103,20 +110,20 @@
   background: rgba(100, 130, 255, 0.15);
   border: 1px solid rgba(120, 150, 255, 0.2);
   color: #aacbff;
-  font-size: .75rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
 }
 
 .modal-no-tech {
   color: gray;
-  font-size: .8rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
 }
 
 .techstack-grid {
-  display: flex;             
-  flex-wrap: nowrap;         
-  gap: 0.6rem;               
-  justify-content: center;   
-  align-items: center;       
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 
@@ -126,16 +133,17 @@
   align-items: center;
   justify-content: center;
   gap: 0.1rem;
-  padding: 1.2rem;          
-  width: 90px;              
-  height: 110px;             
+  padding: 1rem;
+  width: 90px;
+  height: 110px;
   background-color: rgba(71, 85, 105, 0.25);
   border-radius: 1rem;
-  border: 2px solid rgba(0, 179, 255, 0.324); 
-  box-shadow: 0 0 8px rgba(0, 179, 255, 0.295), 0 8px 16px rgba(0,0,0,0.25); 
+  border: 2px solid rgba(0, 179, 255, 0.324);
+  box-shadow: 0 0 8px rgba(0, 179, 255, 0.295), 0 8px 16px rgba(0,0,0,0.25);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  flex-shrink: 0; 
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .techstack-icon:hover {
@@ -146,23 +154,22 @@
 }
 
 .techstack-icon .icon-wrapper {
-  position: relative;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3rem;
+  width: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .techstack-icon img {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2.2rem;
+  width: 2.2rem;
   object-fit: contain;
   transition: transform 0.3s;
 }
 
 .techstack-icon span {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #cbd5e1;
   text-align: center;
@@ -173,13 +180,71 @@
   color: #ffffff;
 }
 
+@media (max-width: 768px) {
+  .techstack-icon {
+    width: 70px;
+    height: 90px;
+    padding: 0.7rem;
+  }
+  .techstack-icon img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .techstack-icon span {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .techstack-grid {
+    flex-direction: column; 
+    align-items: center;
+    gap: 0.3rem;          
+    width: 100%;
+    padding: 0;           
+  }
+
+  .techstack-icon {
+    width: 80%;           
+    max-width: 200px;   
+    height: auto;         
+    padding: 0.4rem;      
+  }
+
+  .techstack-icon img {
+    width: 1.2rem;        
+    height: 1.2rem;
+  }
+
+  .techstack-icon span {
+    font-size: 0.55rem;    
+  }
+}
+
+@media (max-width: 360px) {
+  .techstack-icon {
+    width: 85%;
+    padding: 0.4rem;
+  }
+
+  .techstack-icon img {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .techstack-icon span {
+    font-size: 0.6rem;
+  }
+}
+
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
 
