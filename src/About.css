@@ -299,3 +299,57 @@
   .about-box h2 { font-size: 0.88rem; }
   .about-box p { font-size: 0.7rem; }
 }
+
+@media (max-width: 340px) {
+  .about-box { 
+    padding: 1.4rem; 
+    width: clamp(250px, 85vw, 100px);
+  }
+
+  .about-photo { 
+    width: 170px; 
+    margin-left: 0; 
+  }
+
+  .about-container { 
+    gap: 1.4rem; 
+    flex-direction: column; 
+    align-items: center; 
+    padding-right: 0; 
+    padding-top: 2.2rem;
+  }
+
+  .about-box h2 { font-size: 0.82rem; }
+  .about-box p { font-size: 0.65rem; }
+
+  .section-title {
+    font-size: 1rem;
+    letter-spacing: 1.8px;
+    margin-bottom: 0.7rem;
+    padding: 0.4rem 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .about-box {
+    padding: 1.2rem;
+    width: clamp(230px, 90vw, 100px);
+  }
+
+  .about-photo {
+    width: 150px;
+  }
+
+  .about-container {
+    gap: 1.2rem;
+    padding-top: 2rem;
+  }
+
+  .about-box h2 { font-size: 0.75rem; }
+  .about-box p { font-size: 0.6rem; }
+
+  .section-title {
+    font-size: 0.95rem;
+    letter-spacing: 1.6px;
+  }
+}
