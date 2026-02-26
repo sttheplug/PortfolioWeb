@@ -149,30 +149,31 @@ function HomePage() {
         <h5>Interests</h5>
       </div>
       <div className="interests-grid">
-        {interests.map((interest, index) => (
-          <div key={index} className="interests-card">
-            <div className="content-inner">
-              <img
-                src={interest.icon}
-                alt={interest.name}
-                className="interests-card-img"
-              />
+      {interests.map((interest, index) => (
+        <div key={index} className="interests-card">
+          <div className="interests-card-inner">
+            <div className="interests-card-front">
+              <img src={interest.icon} alt={interest.name} />
               <span>{interest.name}</span>
             </div>
+            <div className="interests-card-back">
+              {interest.description}
+            </div>
           </div>
+        </div>
         ))}
       </div>
     </div>
-  </section>
-  <section className="section space-section" id="contact">
-    <video className="background-video" autoPlay loop muted playsInline>
-      <source src={space1} type="video/mp4" />
-    </video>
-    <div className="header caption">
-      <h5>Contact Me</h5>
-      <ContactIcons />
-    </div>
-  </section>
+    </section>
+    <section className="section space-section" id="contact">
+      <video className="background-video" autoPlay loop muted playsInline>
+        <source src={space1} type="video/mp4" />
+      </video>
+      <div className="header caption">
+        <h5>Contact Me</h5>
+        <ContactIcons />
+      </div>
+    </section>
     </div>
   );
 }
