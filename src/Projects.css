@@ -196,47 +196,109 @@
 }
 
 @media (max-width: 480px) {
-    .techstack-grid {
-    flex-direction: column; 
-    align-items: center;
-    gap: 0.3rem;          
-    width: 100%;
-    padding: 0;           
+  .techstack-grid {
+    gap: 0.4rem;
+    padding: 0;
   }
 
   .techstack-icon {
-    width: 80%;           
-    max-width: 200px;   
-    height: auto;         
-    padding: 0.4rem;      
+    width: 55%;
+    padding: 0.22rem;
   }
 
   .techstack-icon img {
-    width: 1.2rem;        
-    height: 1.2rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .techstack-icon span {
-    font-size: 0.55rem;    
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .techstack-grid {
+    gap: 0.3rem;
+  }
+
+  .techstack-icon {
+    width: 52%;
+    padding: 0.2rem;
+  }
+
+  .techstack-icon img {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .techstack-icon span {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .techstack-icon {
+    width: 50%;
+    padding: 0.18rem;
+  }
+
+  .techstack-icon img {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .techstack-icon span {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .techstack-icon {
+    width: 48%;
+    padding: 0.17rem;
+  }
+
+  .techstack-icon img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .techstack-icon span {
+    font-size: 0.68rem;
   }
 }
 
 @media (max-width: 360px) {
   .techstack-icon {
-    width: 85%;
-    padding: 0.4rem;
+    width: 46%;
+    padding: 0.15rem;
   }
 
   .techstack-icon img {
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.7rem;
+    height: 1.7rem;
   }
 
   .techstack-icon span {
-    font-size: 0.6rem;
+    font-size: 0.66rem;
   }
 }
 
+@media (max-width: 350px) {
+  .techstack-icon {
+    width: 68%;
+    padding: 0.18rem;
+  }
+
+  .techstack-icon img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .techstack-icon span {
+    font-size: 0.64rem;
+  }
+}
 
 .overlay {
   position: absolute;
