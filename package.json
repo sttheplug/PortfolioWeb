@@ -13,7 +13,7 @@
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.4",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "5.0.1",
     "styled-components": "^6.1.19",
     "web-vitals": "^2.1.4"
   },
@@ -28,7 +28,7 @@
     "deploy": "gh-pages -d build"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=20.x"
   },
   "eslintConfig": {
     "extends": [
