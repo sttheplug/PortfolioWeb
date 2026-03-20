@@ -1,11 +1,12 @@
 #projects {
-  background: url('/public/blue2.jpg') center/cover no-repeat; 
+  background: url('/public/blue2.jpg') center/cover no-repeat;
   position: relative;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   scroll-snap-align: start;
   color: #fff;
   overflow: hidden;
@@ -29,11 +30,10 @@
 #projects .header {
   text-align: center;
   margin-bottom: 2rem;
-  padding-top: 2rem;
 }
 
 #projects .header h5 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
   color: #fff;
 }
@@ -48,6 +48,7 @@
   margin: 0 auto;
 }
 
+/* Modal styles */
 .modal-img-container {
   width: 100%;
   overflow: hidden;
@@ -118,6 +119,7 @@
   font-size: clamp(0.7rem, 1.2vw, 0.8rem);
 }
 
+/* Techstack grid (used in ProjectDetails modal) */
 .techstack-grid {
   display: flex;
   flex-wrap: wrap;
@@ -133,9 +135,9 @@
   align-items: center;
   justify-content: center;
   gap: 0.1rem;
-  padding: 1rem;
-  width: 90px;
-  height: 110px;
+  padding: clamp(0.5rem, 1.2vw, 1rem);
+  width: clamp(60px, 10vw, 90px);
+  height: clamp(75px, 12vw, 110px);
   background-color: rgba(71, 85, 105, 0.25);
   border-radius: 1rem;
   border: 2px solid rgba(0, 179, 255, 0.324);
@@ -148,28 +150,28 @@
 
 .techstack-icon:hover {
   background-color: rgba(71, 85, 105, 0.4);
-  transform: scale(1.15);
+  transform: scale(1.1);
   box-shadow: 0 0 12px rgba(0,180,255,0.8), 0 12px 24px rgba(0,0,0,0.3);
   border-color: rgba(0, 180, 255, 0.8);
 }
 
 .techstack-icon .icon-wrapper {
-  height: 3rem;
-  width: 3rem;
+  height: clamp(2rem, 4vw, 3rem);
+  width: clamp(2rem, 4vw, 3rem);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .techstack-icon img {
-  height: 2.2rem;
-  width: 2.2rem;
+  height: clamp(1.5rem, 3vw, 2.2rem);
+  width: clamp(1.5rem, 3vw, 2.2rem);
   object-fit: contain;
   transition: transform 0.3s;
 }
 
 .techstack-icon span {
-  font-size: 0.8rem;
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
   font-weight: 500;
   color: #cbd5e1;
   text-align: center;
@@ -178,126 +180,6 @@
 
 .techstack-icon:hover span {
   color: #ffffff;
-}
-
-@media (max-width: 768px) {
-  .techstack-icon {
-    width: 70px;
-    height: 90px;
-    padding: 0.7rem;
-  }
-  .techstack-icon img {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-  .techstack-icon span {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .techstack-grid {
-    gap: 0.4rem;
-    padding: 0;
-  }
-
-  .techstack-icon {
-    width: 55%;
-    padding: 0.22rem;
-  }
-
-  .techstack-icon img {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .techstack-icon span {
-    font-size: 0.7rem;
-  }
-}
-
-@media (max-width: 430px) {
-  .techstack-grid {
-    gap: 0.3rem;
-  }
-
-  .techstack-icon {
-    width: 52%;
-    padding: 0.2rem;
-  }
-
-  .techstack-icon img {
-    width: 1.9rem;
-    height: 1.9rem;
-  }
-
-  .techstack-icon span {
-    font-size: 0.72rem;
-  }
-}
-
-@media (max-width: 414px) {
-  .techstack-icon {
-    width: 50%;
-    padding: 0.18rem;
-  }
-
-  .techstack-icon img {
-    width: 1.9rem;
-    height: 1.9rem;
-  }
-
-  .techstack-icon span {
-    font-size: 0.7rem;
-  }
-}
-
-@media (max-width: 390px) {
-  .techstack-icon {
-    width: 48%;
-    padding: 0.17rem;
-  }
-
-  .techstack-icon img {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-
-  .techstack-icon span {
-    font-size: 0.68rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .techstack-icon {
-    width: 46%;
-    padding: 0.15rem;
-  }
-
-  .techstack-icon img {
-    width: 1.7rem;
-    height: 1.7rem;
-  }
-
-  .techstack-icon span {
-    font-size: 0.66rem;
-  }
-}
-
-@media (max-width: 350px) {
-  .techstack-icon {
-    width: 68%;
-    padding: 0.18rem;
-  }
-
-  .techstack-icon img {
-    width: 1.6rem;
-    height: 1.6rem;
-  }
-
-  .techstack-icon span {
-    font-size: 0.64rem;
-  }
 }
 
 .overlay {
@@ -310,20 +192,23 @@
   z-index: -1;
 }
 
-@media (max-width: 1400px) {
-  #projects .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
+/* Tablet */
 @media (max-width: 768px) {
   #projects .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
+  #projects {
+    padding: 4rem 0.75rem 2rem;
+  }
+
   #projects .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
   }
 }

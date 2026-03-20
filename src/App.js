@@ -17,6 +17,8 @@ import "./Contact.css";
 
 function HomePage() {
   const [activeSection, setActiveSection] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const sections = ["home", "about", "projects", "interests", "contact"];
     const observers = [];
@@ -39,34 +41,47 @@ function HomePage() {
     return () => observers.forEach((observer) => observer.disconnect());
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div>
-      {/* 🧭 Navigation */}
-      <nav>
+      {/* Navigation */}
+      <nav className={menuOpen ? "nav-open" : ""}>
         <div className="nav-left">Simon Tekle Tesfatsion</div>
-        <div className="nav-links">
-          <a href="#home" className={activeSection === "home" ? "active" : ""}>
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div className={`nav-links ${menuOpen ? "nav-links--open" : ""}`}>
+          <a href="#home" className={activeSection === "home" ? "active" : ""} onClick={handleNavClick}>
             Home
           </a>
-          <a href="#about" className={activeSection === "about" ? "active" : ""}>
+          <a href="#about" className={activeSection === "about" ? "active" : ""} onClick={handleNavClick}>
             About
           </a>
-          <a
-            href="#projects"
-            className={activeSection === "projects" ? "active" : ""}
-          >
+          <a href="#projects" className={activeSection === "projects" ? "active" : ""} onClick={handleNavClick}>
             Projects
           </a>
-          <a
-            href="#interests"
-            className={activeSection === "interests" ? "active" : ""}
-          >
+          <a href="#interests" className={activeSection === "interests" ? "active" : ""} onClick={handleNavClick}>
             Interests
           </a>
-          <a
-            href="#contact"
-            className={activeSection === "contact" ? "active" : ""}
-          >
+          <a href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={handleNavClick}>
             Contact
           </a>
         </div>
@@ -142,15 +157,21 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 🎮 Interests Section */}
+      {/* Interests Section */}
     <section className="section interests-section" id="interests">
     <div className="content-wrapper">
-      <div className="header caption mb-6">
+      <div className="header caption">
         <h5>Interests</h5>
       </div>
       <div className="interests-grid">
       {interests.map((interest, index) => (
-        <div key={index} className="interests-card">
+        <div
+          key={index}
+          className="interests-card"
+          onClick={(e) => {
+            e.currentTarget.classList.toggle("flipped");
+          }}
+        >
           <div className="interests-card-inner">
             <div className="interests-card-front">
               <img src={interest.icon} alt={interest.name} />
