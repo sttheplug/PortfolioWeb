@@ -71,11 +71,15 @@ const slideInRight = keyframes`
 // --- Styled Components ---
 const PageWrapper = styled.div`
   min-height: 100vh;
-  padding: 3rem 2%;
+  padding: 3rem 4%;
   position: relative;
   background: url(${process.env.PUBLIC_URL + "/blue2.jpg"}) no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 2rem 3%;
+  }
 `;
 
 const Overlay = styled.div`
@@ -91,7 +95,7 @@ const Content = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
   z-index: 1;
 `;
@@ -104,7 +108,7 @@ const TextColumn = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   background: linear-gradient(90deg, #74eaff, #a29bff, #ff9bff);
   -webkit-background-clip: text;
@@ -120,6 +124,7 @@ const Description = styled.p`
 const StatsRow = styled.div`
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 `;
 
 const StatCard = styled.div`
