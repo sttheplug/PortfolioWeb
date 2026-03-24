@@ -5,7 +5,7 @@ import "./Contact.css";
 function ContactIcons() {
   const contacts = [
     { icon: <FaEnvelope />, label: "Email", link: "mailto:simon.tekle823@outlook.com" },
-    { icon: <FaGithub />, label: "GitHub", link: "https://github.com/sttheplug" },
+    { icon: <FaGithub />, label: "GitHub", link: "https://github.com/simontekledev" },
     { icon: <FaLinkedin />, label: "LinkedIn", link: "https://www.linkedin.com/in/simon-tekle-b1b500299/" },
   ];
 
